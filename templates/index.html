@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="form-container">
+    <form action="/predict" method="POST">
+
+        <!-- Skill input -->
+        <label for="skill_input">Enter or select your skill:</label>
+        <input type="text" name="skill_input" id="skill_input" list="skill_suggestions" placeholder="e.g. Python, HTML, Java...">
+        <datalist id="skill_suggestions">
+            <option value="Python">
+            <option value="JavaScript">
+            <option value="Java">
+            <option value="C++">
+            <option value="SQL">
+            <option value="HTML & CSS">
+            <option value="Cybersecurity">
+        </datalist>
+
+        <!-- Interest input -->
+        <label for="interest_input">Enter or select your interest:</label>
+        <input type="text" name="interest_input" id="interest_input" list="interest_suggestions" placeholder="e.g. AI, Web Development...">
+        <datalist id="interest_suggestions">
+            <option value="AI / ML">
+            <option value="Data Science">
+            <option value="Web Development">
+            <option value="Software Development">
+            <option value="Cyber Security">
+        </datalist>
+
+        <!-- Education input -->
+        <label for="education_input">Enter or select your education:</label>
+        <input type="text" name="education_input" id="education_input" list="education_suggestions" placeholder="e.g. Bachelor's, Diploma...">
+        <datalist id="education_suggestions">
+            <option value="Bachelor's">
+            <option value="Master's">
+            <option value="Diploma">
+            <option value="School Student">
+        </datalist>
+
+        <button type="submit">Suggest Career</button>
+    </form>
+</div>
+{% endblock %}

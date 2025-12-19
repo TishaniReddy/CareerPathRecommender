@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="result-container">
+    <!-- 🆕 Top 3 Suggestions with Buttons -->
+    <h2>🎯 Top Career Suggestions</h2>
+    <ul style="list-style-type: none; padding: 0;">
+        {% for career, confidence in top3 %}
+        <li style="margin: 1.5rem 0; text-align: center;">
+            <strong style="font-size: 1.2rem;">{{ career }}</strong><br>
+            <span style="color: #555;">{{ confidence }}% match</span><br>
+            <form action="/route#roadmap-section" method="POST" style="margin-top: 0.5rem;">
+                <input type="hidden" name="selected_career" value="{{ career }}">
+                <button type="submit" class="view-route-btn" onclick="scrollToTop(event)">
+                    View Route
+                </button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <!-- ✅ Roadmap for Selected Career -->
+    <h2>Selected Career Path:</h2>
+    <div class="career-box">
+        {{ career }}
+    </div>
+
+    <div id="roadmap-section" class="career-details">
+        <h3>🛠️ Skills to Learn:</h3>
+        <ul>
+            {% for s in info.skills %}
+                <li>{{ s }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>🗺️ Beginner-Friendly Roadmap:</h3>
+        <div class="roadmap">
+            {% for step in info.roadmap %}
+                <div class="roadmap-step">
+                    <div class="step-number">{{ loop.index }}</div>
+                    <div class="step-content">
+                        <h4>{{ step.title }}</h4>
+                        <p>{{ step.desc }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h3>💰 Salary Range:</h3>
+        <p>{{ info.salary }}</p>
+    </div>
+
+    <div class="back-btn-container">
+        <a href="/" class="back-btn">⬅ Go Back</a>
+    </div>
+</div>
+
+<!-- ✨ Scroll up and highlight script -->
+<script>
+function scrollToTop(event) {
+    setTimeout(() => {
+        const roadmapSection = document.getElementById('roadmap-section');
+        if (roadmapSection) {
+            roadmapSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            roadmapSection.classList.add('highlight');
+            setTimeout(() => roadmapSection.classList.remove('highlight'), 1500);
+        }
+    }, 500);
+}
+</script>
+{% endblock %}
