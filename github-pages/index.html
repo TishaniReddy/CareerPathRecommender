@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Path Recommender</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #6366f1;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #4f46e5;
+        }
+
+        .note {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            color: #555;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .features {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 180px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Career Path Recommender</h1>
+
+            <p class="subtitle">
+                Discover career paths based on your skills and interests.
+            </p>
+
+            <div class="form-group">
+                <label for="skill">
+                    Enter or select your skill
+                </label>
+
+                <input
+                    type="text"
+                    id="skill"
+                    placeholder="e.g. Python, HTML, Java..."
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="interest">
+                    Enter or select your interest
+                </label>
+
+                <input
+                    type="text"
+                    id="interest"
+                    placeholder="e.g. AI, Web Development..."
+                >
+            </div>
+
+            <button class="button" onclick="showDemoMessage()">
+                Find My Career Path
+            </button>
+
+            <div class="note" id="message">
+                This is a frontend demonstration of the Career Path Recommender.
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <h3>Skills</h3>
+                    <p>
+                        Enter your technical skills.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Interests</h3>
+                    <p>
+                        Tell us what you're interested in.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Recommendations</h3>
+                    <p>
+                        Get career suggestions.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function showDemoMessage() {
+
+            const skill = document.getElementById("skill").value;
+            const interest = document.getElementById("interest").value;
+            const message = document.getElementById("message");
+
+            if (skill === "" || interest === "") {
+                message.textContent =
+                    "Please enter both your skill and interest.";
+                return;
+            }
+
+            message.textContent =
+                "This is a GitHub Pages frontend demo. The Python recommendation backend is not connected to this demo.";
+        }
+    </script>
+
+</body>
+</html>
